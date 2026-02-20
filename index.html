@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Visualizer — 3D Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="logo">ALGO</span>
+            <span class="logo-sub">3D</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="nav-link active">Visualizer</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Docs</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1 class="hero-title">
+            <span class="title-line">Algorithm</span>
+            <span class="title-line">Visualizer</span>
+        </h1>
+        <p class="hero-subtitle">Experience algorithms in immersive 3D</p>
+    </div>
+
+    <div class="container">
+        <div class="control-panel">
+            <div class="panel-section">
+                <label class="control-label">Algorithm</label>
+                <div class="select-wrapper">
+                    <select id="algorithm" class="custom-select">
+                        <optgroup label="Sorting Algorithms">
+                            <option value="bubbleSort">Bubble Sort</option>
+                            <option value="selectionSort">Selection Sort</option>
+                            <option value="insertionSort">Insertion Sort</option>
+                            <option value="mergeSort">Merge Sort</option>
+                            <option value="quickSort">Quick Sort</option>
+                        </optgroup>
+                        <optgroup label="Search Algorithms">
+                            <option value="linearSearch">Linear Search</option>
+                            <option value="binarySearch">Binary Search</option>
+                        </optgroup>
+                        <optgroup label="Tree Algorithms">
+                            <option value="binaryTree">Binary Tree Traversal</option>
+                            <option value="bst">Binary Search Tree</option>
+                        </optgroup>
+                        <optgroup label="Graph Algorithms">
+                            <option value="bfs">Breadth-First Search</option>
+                            <option value="dfs">Depth-First Search</option>
+                            <option value="dijkstra">Dijkstra's Algorithm</option>
+                        </optgroup>
+                        <optgroup label="Other Algorithms">
+                            <option value="fibonacci">Fibonacci Sequence</option>
+                            <option value="towerOfHanoi">Tower of Hanoi</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <label class="control-label">Speed <span id="speedValue">50</span></label>
+                <input type="range" id="speed" min="1" max="100" value="50" class="custom-range">
+            </div>
+
+            <div class="panel-section">
+                <label class="control-label">Size <span id="arraySizeValue">30</span></label>
+                <input type="range" id="arraySize" min="5" max="100" value="30" class="custom-range">
+            </div>
+
+            <div class="panel-section button-section">
+                <button id="generateBtn" class="btn btn-secondary">
+                    <span>Generate</span>
+                </button>
+                <button id="startBtn" class="btn btn-primary">
+                    <span>Start</span>
+                </button>
+                <button id="pauseBtn" class="btn btn-secondary" disabled>
+                    <span>Pause</span>
+                </button>
+                <button id="resetBtn" class="btn btn-secondary">
+                    <span>Reset</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="comparisons">0</div>
+                <div class="stat-label">Comparisons</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="swaps">0</div>
+                <div class="stat-label">Swaps</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="timeComplexity">O(n²)</div>
+                <div class="stat-label">Time Complexity</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="spaceComplexity">O(1)</div>
+                <div class="stat-label">Space Complexity</div>
+            </div>
+        </div>
+
+        <div id="visualizer" class="visualizer-3d"></div>
+
+        <div class="description-card">
+            <h3 class="description-title">Algorithm Overview</h3>
+            <p id="algorithmDescription" class="description-text">
+                Select an algorithm and click Start to begin the 3D visualization experience.
+            </p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Built with Three.js & WebGL</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
